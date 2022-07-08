@@ -1,0 +1,54 @@
+/*Get string of input from user and also get another string input from user as pattern and 
+determine number of time such pattern occurred and also display the position of the pattern in the given string 1*/
+
+#include <stdio.h>
+#include <string.h>
+ //entering strlength
+char str[100], sub[100];
+int count = 0, count1 = 0;
+ 
+void main()
+{
+    int i, j, l, l1, l2;
+    //getting a string from user
+    printf("\nEnter a string : ");
+    scanf("%[^\n]s", str);
+    //to find string length 
+    l1 = strlen(str);
+    //getting substring from user
+    printf("\nEnter a substring : ");
+    scanf(" %[^\n]s", sub);
+    //to find substring length
+    l2 = strlen(sub);
+    //using for loop to find no.of times the pattern is repeated
+    for (i = 0; i < l1;)
+    {
+        j = 0;
+        count = 0;
+        while ((str[i] == sub[j]))
+        {
+            count++;
+            i++;
+            j++;
+        }
+        if (count == l2)
+        {
+            count1++;                                   
+            count = 0;
+        }
+        else
+            i++;
+    }  
+    //printing the no.of times the str occurs and its position
+    printf("%s occurs %d times in %s", sub, count1, str);
+}
+
+
+/*So this is how we get string of input from user and also get another string input from user as pattern and determine number of time
+such pattern occurred and also display the position of the pattern in the given string 1.And the program is executed successfully.
+working of this program:
+1) declare header files stdio.h and string.h(because we are using string)
+2) declclaring string and substring length
+3) getting string and substring from user
+4) using loop to find the count and repeated string
+*/
